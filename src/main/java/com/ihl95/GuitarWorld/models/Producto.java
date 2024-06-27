@@ -20,7 +20,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Producto {
 
-      @Id
+    @Id
     @GeneratedValue
     private Long id;
 
@@ -40,5 +40,12 @@ public class Producto {
 
     @ManyToOne
     private Compra compra;
+
+    public Producto(String nombre, float precio, String imagen, Usuario propietario) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.propietario = propietario;
+    }
   
 }

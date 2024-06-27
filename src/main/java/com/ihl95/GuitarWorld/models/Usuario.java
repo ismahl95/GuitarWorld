@@ -2,6 +2,7 @@ package com.ihl95.GuitarWorld.models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -48,6 +49,7 @@ public class Usuario {
 
   @NotBlank(message = "El email no puede estar vacío")
   @Email(message = "El email no es válido")
+  @Column(unique=true)
   private String email;
 
   @NotBlank(message = "La contraseña no puede estar vacía")
