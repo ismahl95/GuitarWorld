@@ -7,8 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.ihl95.GuitarWorld.models.Producto;
-import com.ihl95.GuitarWorld.models.Usuario;
+import com.ihl95.GuitarWorld.model.Producto;
+import com.ihl95.GuitarWorld.model.Usuario;
 import com.ihl95.GuitarWorld.repository.ProductoRepository;
 import com.ihl95.GuitarWorld.repository.UsuarioRepository;
 

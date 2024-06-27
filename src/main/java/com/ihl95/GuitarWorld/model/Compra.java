@@ -1,4 +1,4 @@
-package com.ihl95.GuitarWorld.models;
+package com.ihl95.GuitarWorld.model;
 
 import java.sql.Date;
 import java.util.List;
@@ -47,5 +47,8 @@ public class Compra {
 
   @OneToMany(mappedBy = "compra")
   private List<Producto> productos;
+
+  @ManyToOne
+  private Usuario propietario;
   
 }

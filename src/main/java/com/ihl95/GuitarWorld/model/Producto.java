@@ -1,4 +1,4 @@
-package com.ihl95.GuitarWorld.models;
+package com.ihl95.GuitarWorld.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

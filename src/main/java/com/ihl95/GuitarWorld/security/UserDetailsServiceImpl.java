@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 
-import com.ihl95.GuitarWorld.models.Usuario;
+import com.ihl95.GuitarWorld.model.Usuario;
 import com.ihl95.GuitarWorld.repository.UsuarioRepository;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
