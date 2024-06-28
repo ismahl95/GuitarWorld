@@ -1,12 +1,18 @@
 package com.ihl95.GuitarWorld;
+
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GuitarWorldApplicationTests {
+public class GuitarWorldApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    // Ensure there is only one public constructor
+    public GuitarWorldApplicationTests() {
+        // Initialization code if needed
+    }
 
+    @Test
+    public void contextLoads() {
+        // Your test logic here
+    }
 }

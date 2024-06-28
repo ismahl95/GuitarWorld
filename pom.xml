@@ -15,7 +15,7 @@
 	<name>GuitarWorld</name>
 	<description>Tienda de guitarras de todo tipo</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
