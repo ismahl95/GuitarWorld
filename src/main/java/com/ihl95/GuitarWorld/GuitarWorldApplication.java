@@ -1,6 +1,7 @@
 package com.ihl95.GuitarWorld;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,6 +12,8 @@ import com.ihl95.GuitarWorld.model.Producto;
 import com.ihl95.GuitarWorld.model.Usuario;
 import com.ihl95.GuitarWorld.repository.ProductoRepository;
 import com.ihl95.GuitarWorld.repository.UsuarioRepository;
+import com.ihl95.GuitarWorld.services.ProductoService;
+import com.ihl95.GuitarWorld.services.UsuarioService;
 
 @SpringBootApplication
 public class GuitarWorldApplication {
@@ -34,29 +37,38 @@ public class GuitarWorldApplication {
  * @return Se devuelve un bean CommandLineRunner.
  */
 	@Bean
-	public CommandLineRunner initData(UsuarioRepository userRepository, ProductoRepository productoRepository) {
+	public CommandLineRunner initData(UsuarioService userService, ProductoService productoService) {
 
-		return (args) -> {
+		return args -> {
 
-			Usuario user = new Usuario();
-			user.setNombre("Julio");
-			user.setApellidos("Cesar");
-			user.setEmail("caesar.julius@example.com");
-			user.setPassword("rubicon");
-			userRepository.save(user);
+			Usuario user1 = new Usuario();
+			user1.setNombre("Julio");
+			user1.setApellidos("Cesar");
+			user1.setEmail("caesar.julius@example.com");
+			user1.setPassword("rubicon");
 
-			productoRepository.saveAll(
-				Arrays.asList(
+			Usuario user2 = new Usuario();
+			user2.setNombre("Gneo");
+			user2.setApellidos("Pompeyo");
+			user2.setEmail("pompeyo.gneo@example.com");
+			user2.setPassword("pompaelo");
+
+			List<Usuario> usuarios = Arrays.asList(user1, user2);
+			
+			usuarios.forEach(userService::registrar);
+			
+			List<Producto> productos =	Arrays.asList(
 					new Producto("Gibson Les Paul", 1000, 
-						"https://images.musicstore.de/images/0960/gibson-les-paul-modern-figured-cobalt-blue_1_GIT0060762-000.jpg", user),
+						"https://images.musicstore.de/images/0960/gibson-les-paul-modern-figured-cobalt-blue_1_GIT0060762-000.jpg", user1),
 					new Producto("Ibanez 5th Generation", 500, 
-						"https://fast-images.static-thomann.de/pics/bdb/_53/533407/19013198_800.jpg", user),
+						"https://fast-images.static-thomann.de/pics/bdb/_53/533407/19013198_800.jpg", user1),
 					new Producto("Fender Telecaster", 500,
-						"https://fast-images.static-thomann.de/pics/bdb/_54/548562/18405137_800.jpg", user),
+						"https://fast-images.static-thomann.de/pics/bdb/_54/548562/18405137_800.jpg", user2),
 					new Producto("ESP LTD EC-1000", 500,
-						"https://fast-images.static-thomann.de/pics/bdb/_19/192156/12195607_800.jpg", user)
-				)
-			);
+						"https://fast-images.static-thomann.de/pics/bdb/_19/192156/12195607_800.jpg", user2)
+				);
+
+				productos.forEach(productoService::insertar);
 
 		};
 	}
